@@ -646,7 +646,7 @@ ICS所讲述的知识，只是更加深入地
 
 163
 00:07:58,430 --> 00:08:03,169
-将学到关于数的表示的很多知识。
+将学到关于数的表示的很多知识，
 
 164
 00:08:00,740 --> 00:08:04,639
@@ -654,336 +654,336 @@ ICS所讲述的知识，只是更加深入地
 
 165
 00:08:03,169 --> 00:08:09,730
-当你理解后会变得
+当你理解后会发现它变得如此简单。
 
 
 166
 00:08:04,639 --> 00:08:15,140
-better so a simple case is
+举一个简单的例子，大概是我在八年级学到的，
 
 167
 00:08:09,730 --> 00:08:16,520
-for numbers I don't know when it was but
+
 
 168
 00:08:15,140 --> 00:08:18,950
-it was probably in about eighth grade
+时间我不太确定，就是如果对一个数取平方，
 
 169
 00:08:16,520 --> 00:08:21,170
-algebra that I learned that if you
+
 
 170
 00:08:18,950 --> 00:08:24,050
-square a number it will be at least zero
+它就会大于等于0，当然这个数不是一个虚数。
 
 171
 00:08:21,170 --> 00:08:27,830
-if it's not an imaginary number so a
+
 
 172
 00:08:24,050 --> 00:08:29,990
-either an integer or a real number you'd
+也就是说我们对一个整数或实数取平方，我们会
 
 173
 00:08:27,830 --> 00:08:34,550
-expect to square it and it to be a
+
 
 174
 00:08:29,990 --> 00:08:37,159
-positive value or perhaps zero right and
+得到一个正数或0，这个结论对浮点数成立。
 
 175
 00:08:34,550 --> 00:08:38,990
-that's actually generally true with
+
 
 176
 00:08:37,159 --> 00:08:44,450
-floats a representation of floating
+
 
 177
 00:08:38,990 --> 00:08:47,030
-point numbers but with integers or int
+但是当对整数做平方运算时你要知道计算机对
 
 178
 00:08:44,450 --> 00:08:50,450
-you know the computer representation of
+整数的表示没有那么简单。
 
 179
 00:08:47,030 --> 00:08:52,730
-integers it's not so clear so for
+
 
 180
 00:08:50,450 --> 00:08:56,240
-example if you square 40,000 on most
+举个例子，比如说40000*40000在大多数电脑上
 
 181
 00:08:52,730 --> 00:09:00,260
-computers then you'll get whatever that
+
 
 182
 00:08:56,240 --> 00:09:04,670
-should be as you'd expect but what if
+会得到正确的结果，但是50000*50000呢，
 
 183
 00:09:00,260 --> 00:09:07,850
-you square 50,000 so you could do this
+
 
 184
 00:09:04,670 --> 00:09:10,790
-in your head but I actually built into
+你可以在脑子里算一下，我现在会用电脑来演示。
 
 185
 00:09:07,850 --> 00:09:13,960
-this laptop is a computer so I'm going
+
 
 186
 00:09:10,790 --> 00:09:13,960
-to go ahead and use it
+
 
 187
 00:09:16,720 --> 00:09:21,339
-we just size it a little bit
+我们把窗口缩小一点，我们会使用一个很重要的工具。
 
 188
 00:09:23,780 --> 00:09:43,910
-and use a tool which on UNIX systems is
+
 
 189
 00:09:30,470 --> 00:09:47,900
-called know what's going on before here
+
 
 190
 00:09:43,910 --> 00:09:51,890
-we are on Linux systems is called gdb
+在UNIX系统上它叫做gdb，在OS X上叫做lldb。
 
 191
 00:09:47,900 --> 00:09:53,300
-but on a Macintosh OS X it's called L LD
+
 
 192
 00:09:51,890 --> 00:09:55,220
-B but they're pretty much the same
+它们几乎是一样的，这个学期你们会对这个
 
 193
 00:09:53,300 --> 00:09:58,730
-program you will get to know this
+工具很熟悉的。那么我们输入40000*40000
 
 194
 00:09:55,220 --> 00:10:02,860
-program really really well this terms so
+
 
 195
 00:09:58,730 --> 00:10:09,650
-like I said a few square 40-thousand
+
 
 196
 00:10:02,860 --> 00:10:18,710
-you'll get what you'd expect but let's
+屏幕显示了正确的结果。现在我们将它
 
 197
 00:10:09,650 --> 00:10:20,630
-change this to 50,000 and you get a very
+改成50000*50000，得到了一个很怪的数字，
 
 198
 00:10:18,710 --> 00:10:22,790
-peculiar number that doesn't look
+
 
 199
 00:10:20,630 --> 00:10:24,890
-anything like you'd expect 50,000
+一看就不是正确答案，因为这是一个负数。
 
 200
 00:10:22,790 --> 00:10:29,060
-squared to be and in fact it's negative
+
 
 201
 00:10:24,890 --> 00:10:31,160
-and so that might just seem like well
+可能是哪个地方出问题了吗？
 
 202
 00:10:29,060 --> 00:10:34,300
-there must be a mistake or something no
+不，计算机就是这样的。因为它默认所有
 
 203
 00:10:31,160 --> 00:10:37,250
-that that's just the way it is because
+
 
 204
 00:10:34,300 --> 00:10:40,820
-this computer is expecting numbers to be
+
 
 205
 00:10:37,250 --> 00:10:44,240
-represented as 32-bit values and the bit
+数字以32位表示，而你计算所得到结果翻译出来
 
 206
 00:10:40,820 --> 00:10:46,550
-pattern that you get when you do this
+恰好和负数的表达形式一样。(待校正)
 
 207
 00:10:44,240 --> 00:10:49,100
-multiplication happens to be the
+
 
 208
 00:10:46,550 --> 00:10:52,990
-representation of a negative number so
+所以这就是一个关于整数运算的，想象和现实
 
 209
 00:10:49,100 --> 00:10:54,830
-that's a an example of where your normal
+不同的一个例子。
 
 210
 00:10:52,990 --> 00:10:58,839
-expectations about integer arithmetic
+
 
 211
 00:10:54,830 --> 00:11:09,700
-may or may not hold on the other hand
+从另一个方面来说，如果我试着计算300*400*500*600，
 
 212
 00:10:58,839 --> 00:11:13,130
-there are some places like if I try to
+
 
 213
 00:11:09,700 --> 00:11:15,740
-do the same thing multiplying 300 by 400
+
 
 214
 00:11:13,130 --> 00:11:17,510
-by 500 by 600 then all of a sudden I
+我也会得到一个一看就不是正确答案的答案。
 
 215
 00:11:15,740 --> 00:11:19,970
-also get a number that clearly is not
+
 
 216
 00:11:17,510 --> 00:11:22,940
-what you'd expect because the same thing
+因为和之前同样的事情-溢出-发生了，
 
 217
 00:11:19,970 --> 00:11:24,920
-has happened I've gotten an overflow it
+
 
 218
 00:11:22,940 --> 00:11:26,780
-happens that it's overflowed to a value
+结果从正确答案溢出成了一个正数，
 
 219
 00:11:24,920 --> 00:11:29,390
-that's positive not negative but it
+但很显然，这个结果绝对不是这三个数乘积
 
 220
 00:11:26,780 --> 00:11:32,330
-still is obviously not the integer
+
 
 221
 00:11:29,390 --> 00:11:35,450
-product of those four numbers on the
+的答案。从另一方面来说你会发现，虽然现在
 
 222
 00:11:32,330 --> 00:11:37,139
-other hand one thing you'll find is even
+
 
 223
 00:11:35,450 --> 00:11:43,160
-though this arithmetic is now
+计算机的算数运算规则和正常规则还不太一样，
 
 224
 00:11:37,139 --> 00:11:46,559
-not a normal sort of integer arithmetic
+但是仍然有部分算数规则在计算机上运算正常。
 
 225
 00:11:43,160 --> 00:11:51,439
-it actually has some well-behaved
+
 
 226
 00:11:46,559 --> 00:11:51,439
-properties so for example if you look at
+比如说大家看我接下来的操作。
 
 227
 00:11:53,149 --> 00:11:58,739
-what I've done is I just moved the 300
+我刚才做的仅仅是把300从最前面移到了最后面。
 
 228
 00:11:56,369 --> 00:12:01,139
-around from the beginning of the product
+
 
 229
 00:11:58,739 --> 00:12:03,179
-to the end of the product and so now if
+所以如果你现在考虑一下乘法的交换律和结合律是怎么
 
 230
 00:12:01,139 --> 00:12:05,249
-you think about how associativity and
+
 
 231
 00:12:03,179 --> 00:12:07,199
-community works I'm basically
+起作用的，你就会发现我仅仅交换了这四个数相乘的
 
 232
 00:12:05,249 --> 00:12:09,629
-multiplying these four numbers in a
+
 
 233
 00:12:07,199 --> 00:12:13,350
-different order but what you see is you
+顺序，然后我们得到了相同的结果——虽然这个结果
 
 234
 00:12:09,629 --> 00:12:15,299
-get the same funny-looking result no
+看起来很奇怪。所以我们能看出机器内的数运算也
 
 235
 00:12:13,350 --> 00:12:17,220
-matter how you do it so what you can say
+
 
 236
 00:12:15,299 --> 00:12:19,279
-from this is integer arithmetic is
+遵守交换律和结合律，它们也遵守一些传统的数学规则，
 
 237
 00:12:17,220 --> 00:12:21,809
-commutative and associative so it obeys
+
 
 238
 00:12:19,279 --> 00:12:22,439
-some of the conventional mathematical
+
 
 239
 00:12:21,809 --> 00:12:25,559
-properties
+
 
 240
 00:12:22,439 --> 00:12:33,809
-it just isn't what you'd expect it to be
+只是运算的结果和我们推算的不同。
 
 241
 00:12:25,559 --> 00:12:43,040
-it's not a a normal sort of mathematical
+
 
 242
 00:12:33,809 --> 00:12:43,040
-integer arithmetic so the cartoon here
+这幅漫画给出了另一个机器中数学运算的例子。
 
 243
 00:12:43,309 --> 00:12:51,949
-shows an example that's a similar
+
 
 244
 00:12:47,600 --> 00:12:51,949
-possibility we get to it
+
 
 245
 00:12:57,980 --> 00:13:04,930
-oh I guess it comes at the end I don't
+
 
 246
 00:13:02,090 --> 00:13:07,730
-know the next question is is a addition
+下一个问题是，机器中的加法是可结合的吗？
 
 247
 00:13:04,930 --> 00:13:10,190
-associative right can you order the
+
 
 248
 00:13:07,730 --> 00:13:12,500
