@@ -983,35 +983,35 @@ ICS所讲述的知识，只是更加深入地
 
 247
 00:13:04,930 --> 00:13:10,190
-
+你能够改变参与加法运算的操作数的顺序
 
 248
 00:13:07,730 --> 00:13:12,500
-numbers and then see probably might have
+然后得到相同的结果吗？如果你们去尝试
 
 249
 00:13:10,190 --> 00:13:14,540
-figured bolted and the integer
+就会发现，尽管有溢出的风险，机器中的
 
 250
 00:13:12,500 --> 00:13:17,660
-arithmetic even though as this potential
+加法运算仍然符合结合律，显然也是可
 
 251
 00:13:14,540 --> 00:13:21,260
-for overflow it is associative and it's
+交换的，但是注意我们刚刚都是在讨论整数
 
 252
 00:13:17,660 --> 00:13:24,740
-commutative too but for floats it's not
+
 
 253
 00:13:21,260 --> 00:13:26,420
-really quite the same because the range
+的情况。当我们讨论到浮点数时情况就不一样了
 
 254
 00:13:24,740 --> 00:13:29,180
-of values you can get in floating
+因为浮点数范围太大了，有些数可能会消失。
 
 255
 00:13:26,420 --> 00:13:31,700
