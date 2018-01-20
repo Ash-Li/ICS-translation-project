@@ -33,7 +33,7 @@
 
 ## 课程列表
 
-- lesson-01: Overview *[EN-finished]*
+- lesson-01: Overview *[EN-finished][CH-translating]*
 - lesson-02: Bits ints Part1 *[EN-translating]*
 - lesson-03: Bits ints Part2 *[waiting]*
 - lesson-04: Floating Point *[waiting]*
