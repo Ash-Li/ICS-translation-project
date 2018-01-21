@@ -1015,479 +1015,479 @@ ICS所讲述的知识，只是更加深入地
 
 255
 00:13:26,420 --> 00:13:31,700
-pointers so extreme that some numbers
+
 
 256
 00:13:29,180 --> 00:13:33,980
-kind of disappear on you so the example
+接下来我会不用电脑给大家举一个
 
 257
 00:13:31,700 --> 00:13:37,040
-I'll show without having to use a
+
 
 258
 00:13:33,980 --> 00:13:38,840
-computer to do it is if you take a big
+浮点数不遵守结合律的例子。用1e20减去自身会得到0，
 
 259
 00:13:37,040 --> 00:13:41,540
-number and subtract it from itself
+再加上3.14就会得到3.14，但是如果
 
 260
 00:13:38,840 --> 00:13:47,650
-you'll get zero so if you add that to
+
 
 261
 00:13:41,540 --> 00:13:50,770
-3.14 you'll get 3.14 but if you take
+你先算-1e20与3.14的和，因为3.14相比于-1e20来说
 
 262
 00:13:47,650 --> 00:13:55,010
-those two numbers and you reorder the
+太小了，所以这个计算过程相当于是1e20减去
 
 263
 00:13:50,770 --> 00:13:58,010
-how you combine them so that that 3.14
+
 
 264
 00:13:55,010 --> 00:14:00,200
-compared to a minus 10 to the 20th is so
+
 
 265
 00:13:58,010 --> 00:14:04,880
-insignificant that that result gets
+1e20，最后我们得到的结果是0，这显然是不对的。
 
 266
 00:14:00,200 --> 00:14:07,160
-turned into minus 10 to the 20th and you
+
 
 267
 00:14:04,880 --> 00:14:09,680
-add that to one 10 to the 20th and you
+
 
 268
 00:14:07,160 --> 00:14:15,710
-end up with zero so it's not associative
+
 
 269
 00:14:09,680 --> 00:14:18,140
-and so what you see is the both these
+所以你可以看到，这两套数字系统都有些不对的地方。
 
 270
 00:14:15,710 --> 00:14:20,300
-number systems have some peculiarities
+
 
 271
 00:14:18,140 --> 00:14:22,160
-and it all comes down to the fact that
+而这一切归根结底是因为计算机尝试用有限
 
 272
 00:14:20,300 --> 00:14:24,680
-they use finite representations of
+的二进制位数的表示形式去表示一个可能无法
 
 273
 00:14:22,160 --> 00:14:28,130
-things that are potentially infinite in
+用有限位二进制表示的数。综上所述，
 
 274
 00:14:24,680 --> 00:14:31,010
-their expanse and so there's some
+计算机表达数的方式存在很多妥协的地方，
 
 275
 00:14:28,130 --> 00:14:33,650
-compromises in how those work and what
+而这些妥协会导致一些问题。比如一个整数
 
 276
 00:14:31,010 --> 00:14:36,710
-the compromise is you can overflow an
+因为超出它能表示的范围而溢出，又比如
 
 277
 00:14:33,650 --> 00:14:38,540
-integer and run out of room and in
+在浮点数中遇到的精度问题，有时候你
 
 278
 00:14:36,710 --> 00:14:40,460
-floating point numbers you have roundoff
+
 
 279
 00:14:38,540 --> 00:14:43,220
-problems where you should have drop the
+不得不舍弃一些很重要的位数。
 
 280
 00:14:40,460 --> 00:14:45,530
-digits that are significant you can also
+当然浮点数有时候也会溢出，不过这不太常见，
 
 281
 00:14:43,220 --> 00:14:49,730
-overflow floating points but the more
+浮点数通常都是精度问题。
 
 282
 00:14:45,530 --> 00:14:51,860
-common problem is round of so this is
+就像这幅漫画里面说的那样，一个人在数羊，
 
 283
 00:14:49,730 --> 00:14:53,990
-shown in this cartoon this idea of
+
 
 284
 00:14:51,860 --> 00:14:57,170
-overflow of somebody counting sheep
+
 
 285
 00:14:53,990 --> 00:15:00,160
-which in the u.s. is in English language
+这是一种帮助睡眠的小技巧，
 
 286
 00:14:57,170 --> 00:15:05,660
-at least a way to fall asleep and when
+当他数到32767时，他把这个数加了一，
 
 287
 00:15:00,160 --> 00:15:09,590
-he or she goes from 32,767 and then
+然后这时候变成了-32768头羊
 
 288
 00:15:05,660 --> 00:15:11,510
-increment set by one gets minus 32,768
+
 
 289
 00:15:09,590 --> 00:15:13,640
-and we'll see
+我们之后会详细讲解为什么会这样，
 
 290
 00:15:11,510 --> 00:15:16,670
-exactly why that happens but basically
+简单地说，最大的数加一变成了最小的数
 
 291
 00:15:13,640 --> 00:15:18,740
-the numbers are going up to the largest
+
 
 292
 00:15:16,670 --> 00:15:20,180
-value can represent and then when it
+
 
 293
 00:15:18,740 --> 00:15:26,690
-goes one more it becomes a negative
+
 
 294
 00:15:20,180 --> 00:15:29,840
-number so these are really important
+这是非常重要的原理，你们必须掌握
 
 295
 00:15:26,690 --> 00:15:31,960
-under things to understand I mean 90% of
+也许在日常生活中你90%的时间不会碰到这种问题，
 
 296
 00:15:29,840 --> 00:15:34,280
-the time maybe you can just get by
+就是写很常规的程序，不用考虑溢出
 
 297
 00:15:31,960 --> 00:15:36,170
-writing programs and not worrying about
+
 
 298
 00:15:34,280 --> 00:15:39,800
-whether your numbers are going to exceed
+
 
 299
 00:15:36,170 --> 00:15:41,720
-their possible range but they sometimes
+但是有些时候这是很重要的，比如说如果你
 
 300
 00:15:39,800 --> 00:15:44,510
-when this could be really important if
+
 
 301
 00:15:41,720 --> 00:15:47,720
-you're like you know controlling a
+在操控火箭，你肯定不会希望正数的推力突然
 
 302
 00:15:44,510 --> 00:15:51,440
-rocket you really don't want the
+
 
 303
 00:15:47,720 --> 00:15:54,500
-positive thrust to become negative or
+变成负数
 
 304
 00:15:51,440 --> 00:15:56,600
-something like that so you can see you
+所以说计算机运算的这个特性非常重要
 
 305
 00:15:54,500 --> 00:15:58,870
-there this could be an important
+
 
 306
 00:15:56,600 --> 00:16:01,370
-consideration similarly there's
+在信息安全领域有很多著名的安全漏洞
 
 307
 00:15:58,870 --> 00:16:03,800
-well-known instances of security
+
 
 308
 00:16:01,370 --> 00:16:06,980
-vulnerabilities where somebody wrote
+都是因为代码中的一个变量本来是正数
 
 309
 00:16:03,800 --> 00:16:09,680
-code that sort of expected a positive
+
 
 310
 00:16:06,980 --> 00:16:11,420
-number in some place and a clever person
+有一些聪明的人发现了这一点，如果
 
 311
 00:16:09,680 --> 00:16:13,340
-figured out if I supply a negative
+他们能够使这个变量变成负数，就可以攻破
 
 312
 00:16:11,420 --> 00:16:15,770
-number I can fool the system and get it
+系统去干坏事。
 
 313
 00:16:13,340 --> 00:16:18,230
-to do bad things so these are the kind
+所以如果你在一些很注意信息安全的项目中
 
 314
 00:16:15,770 --> 00:16:19,490
-of corner cases that you need to
+
 
 315
 00:16:18,230 --> 00:16:21,740
-understand better if you're either
+工作，或者对自己程序的安全漏洞很在意
 
 316
 00:16:19,490 --> 00:16:23,150
-working in programs where it's really
+
 
 317
 00:16:21,740 --> 00:16:25,760
-really important that it worked
+
 
 318
 00:16:23,150 --> 00:16:28,640
-correctly or you're really worried about
+
 
 319
 00:16:25,760 --> 00:16:30,800
-security vulnerabilities anytime you
+你就必须注意这些细节
 
 320
 00:16:28,640 --> 00:16:33,220
-have possible four corner cases you have
+
 
 321
 00:16:30,800 --> 00:16:35,720
-to understand these nuances better a
+
 
 322
 00:16:33,220 --> 00:16:38,420
-similarly for floating-point if you're
+对于浮点数也是如此，如果你需要在
 
 323
 00:16:35,720 --> 00:16:40,460
-going to use floating-point for serious
+一些很重要的场合使用浮点数，不管是
 
 324
 00:16:38,420 --> 00:16:43,780
-computation whether it's scientific
+科学研究还是设计桥梁或者核电站，
 
 325
 00:16:40,460 --> 00:16:46,610
-research or for designing bridges or
+
 
 326
 00:16:43,780 --> 00:16:47,810
-nuclear power plants or something you
+你都最好要理解机器中这些数到底是什么样的
 
 327
 00:16:46,610 --> 00:16:51,500
-better understand what the
+
 
 328
 00:16:47,810 --> 00:16:53,360
-characteristics are so that's our first
+所以机器中数的表示就是我们第一章的内容
 
 329
 00:16:51,500 --> 00:16:56,330
-one and we'll spend a couple weeks
+我们会花几周的时间讨论数和它们不同表示方式的特性
 
 330
 00:16:53,360 --> 00:16:57,830
-talking about numbers and number of
+
 
 331
 00:16:56,330 --> 00:17:01,310
-representations and their properties
+
 
 332
 00:16:57,830 --> 00:17:03,410
-here the second is we're going to spend
+课程的第二部分，我们会花很多时间学习在
 
 333
 00:17:01,310 --> 00:17:05,420
-a lot of time in this course learning
+机器层面的编程。换句话说，我们会研究
 
 334
 00:17:03,410 --> 00:17:08,270
-about machine level programming meaning
+
 
 335
 00:17:05,420 --> 00:17:10,699
-what the instructions are that actually
+在机器中真正被执行的指令
 
 336
 00:17:08,270 --> 00:17:12,890
-get executed by the computer and that
+那些指令可以用汇编语言描述
 
 337
 00:17:10,699 --> 00:17:15,980
-can be described in assembly language
+
 
 338
 00:17:12,890 --> 00:17:18,170
-which is a text version of it or an
+汇编语言是指令的文本形式，也可以说
 
 339
 00:17:15,980 --> 00:17:21,199
-object code which is the actual bit
+是对机器指令的翻译
 
 340
 00:17:18,170 --> 00:17:23,959
-level binary encoding of instructions
+
 
 341
 00:17:21,199 --> 00:17:24,630
-and we'll learn a fair bit about that
+我们也会涉及一点编译相关知识
 
 342
 00:17:23,959 --> 00:17:27,959
-and spend
+
 
 343
 00:17:24,630 --> 00:17:31,620
-amount of time seeing how code that you
+也就是你写的代码是如何转换为机器语言的
 
 344
 00:17:27,959 --> 00:17:33,660
-write in aussie gets turned into machine
+
 
 345
 00:17:31,620 --> 00:17:36,450
-code and how that gets executed on the
+
 
 346
 00:17:33,660 --> 00:17:38,550
-machine one thing I'll say is that
+其实这门课以前是要求大家系统地学习汇编语言的
 
 347
 00:17:36,450 --> 00:17:41,420
-historically courses like this would
+
 
 348
 00:17:38,550 --> 00:17:45,870
-teach assembly code by having you write
+以前的学生得用汇编语言写程序实现功能
 
 349
 00:17:41,420 --> 00:17:47,640
-programs in assembly that do various
+但这有点无聊，因为汇编语言太繁琐了
 
 350
 00:17:45,870 --> 00:17:49,260
-things not usually very interesting
+
 
 351
 00:17:47,640 --> 00:17:51,540
-because it's a lot of work to write
+
 
 352
 00:17:49,260 --> 00:17:53,310
-assembly program this course is much
+ICS更关注由c编译器生成的汇编语言代码
 
 353
 00:17:51,540 --> 00:17:56,010
-more about taking the assembly code
+
 
 354
 00:17:53,310 --> 00:17:58,020
-that's been generated by a compiler a C
+
 
 355
 00:17:56,010 --> 00:17:59,850
-compiler and looking at it and
+你们需要试着去理解生成的代码
 
 356
 00:17:58,020 --> 00:18:02,280
-understanding it that's a different set
+这比你们自己去写汇编程序要轻松得多
 
 357
 00:17:59,850 --> 00:18:07,230
-of skills than you need to write it on
+
 
 358
 00:18:02,280 --> 00:18:10,110
-your own and in particular we're going
+特别是我们会关注英特尔最新的处理器x86-64，
 
 359
 00:18:07,230 --> 00:18:12,480
-to look at the language of of Intel
+,
 
 360
 00:18:10,110 --> 00:18:13,170
-processors the most recent versions of
+
 
 361
 00:18:12,480 --> 00:18:17,880
-them are called
+
 
 362
 00:18:13,170 --> 00:18:20,460
-x86 - 64 the 64-bit version of their
+
 
 363
 00:18:17,880 --> 00:18:23,160
-instruction set and one thing that's new
+这也是CSAPP第三版相比第二版增加的内容
 
 364
 00:18:20,460 --> 00:18:26,670
-in this course compared to previous ones
+
 
 365
 00:18:23,160 --> 00:18:31,250
-we used to teach 32-bit stuff this
+我们以前教的是32位处理器，这次课将会一直
 
 366
 00:18:26,670 --> 00:18:31,250
-course is 64 bits all the time
+针对64位处理器
 
 367
 00:18:32,390 --> 00:18:37,500
-another one that we'll talk about a fair
+另一个要讨论的内容是存储系统
 
 368
 00:18:35,040 --> 00:18:40,010
-amount that is really fairly visible to
+存储系统是计算机系统中最直接可见的部分之一
 
 369
 00:18:37,500 --> 00:18:42,570
-programmers surprisingly visible is
+
 
 370
 00:18:40,010 --> 00:18:45,930
-aspects of the memory system so modern
+现代计算机中有一个非常复杂的多级存储体系
 
 371
 00:18:42,570 --> 00:18:49,770
-computers have a very complex layered
+
 
 372
 00:18:45,930 --> 00:18:52,110
-memory system to try and give you high
+它能够同时具有高速、大容量的优点
 
 373
 00:18:49,770 --> 00:18:55,140
-performance in high capacity at the same
+
 
 374
 00:18:52,110 --> 00:18:58,650
